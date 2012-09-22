@@ -4884,7 +4884,7 @@ body {
   padding-bottom: 40px;
 }
 .brand {
-  background: url("/images/logo.gif") no-repeat;
+  background: url("../images/logo.gif") no-repeat;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
