@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
          panel "Admins List" do
            ul do
              AdminUser.all.map do |admin_user|
-               li link_to(admin_user.email, cm_admin_user_path(admin_user))
+               li link_to(admin_user.full_name || admin_user.email, cm_admin_user_path(admin_user))
              end
            end
          end
