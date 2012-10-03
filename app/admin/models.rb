@@ -14,6 +14,14 @@ ActiveAdmin.register Model do
       f.input :brand
       f.input :model_type, label: "Type"
     end
+
+    f.inputs "Features" do
+      f.has_many :features do |g|
+        g.input :_destroy, :as => :boolean, :label => "delete" unless g.object.id.nil?
+        g.input :name
+        g.input :value
+      end
+    end
     f.buttons
   end
 end
