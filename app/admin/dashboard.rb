@@ -13,8 +13,12 @@ ActiveAdmin.register_page "Dashboard" do
        column do
          panel "Admins List" do
            ul do
-             AdminUser.all.map do |admin_user|
-               li link_to(admin_user.full_name || admin_user.email, cm_admin_user_path(admin_user))
+             AdminUser.where(role: 'admin').map do |admin_user|
+               if current_admin_user.admin?
+                 li link_to(admin_user.full_name || admin_user.email, cm_admin_user_path(admin_user))
+               else
+                 li admin_user.full_name || admin_user.email
+               end
              end
            end
          end

@@ -11,7 +11,7 @@ ActiveAdmin.register AdminUser do
     end
   end
 
-  menu :priority => 10
+  menu priority: 10, if: proc{ current_admin_user.admin? }
 
   index do
     column :email

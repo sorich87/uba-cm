@@ -8,6 +8,7 @@ class AdminAbility
       can :manage, :all
     else
       can :read, :all
+      cannot :read, AdminUser
     end
   end
 end
