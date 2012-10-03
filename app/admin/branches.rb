@@ -1,4 +1,16 @@
 ActiveAdmin.register Branch do
+  controller.authorize_resource
+
+  controller do
+    def action_methods
+      if current_admin_user.admin?
+        super
+      else
+        super - ['new', 'edit', 'destroy']
+      end
+    end
+  end
+
   menu priority: 5, parent: "Users"
 
   index do

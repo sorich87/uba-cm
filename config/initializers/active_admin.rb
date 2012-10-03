@@ -1,5 +1,4 @@
 ActiveAdmin.setup do |config|
-
   # == Site Title
   #
   # Set the title that is displayed on the main layout
@@ -147,4 +146,16 @@ ActiveAdmin.setup do |config|
   #
   # Set the CSV builder separator (default is ",")
   # config.csv_column_separator = ','
+end
+
+# Below the ActiveAdmin.setup block, I've opened up the ActiveAdmin::ResourceController
+# and modified the current_ability method to use a special AdminAbility class.
+# Technically you can put this code almost anywere, but I've added it here because
+# I think it belongs together with the other Active Admin initializer code.
+ActiveAdmin::ResourceController.class_eval do
+  protected
+
+  def current_ability
+    @current_ability ||= AdminAbility.new(current_admin_user)
+  end
 end

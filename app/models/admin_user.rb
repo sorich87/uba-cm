@@ -7,5 +7,16 @@ class AdminUser < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+  attr_accessible :role
+
+  ROLES = %w(guest admin)
+
+  def role?(base_role)
+    return false unless role
+    ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
+
+  def admin?
+    role?(:admin)
+  end
 end
