@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  model: 
+  computer: 
+
+two:
+  name: MyString
+  model: 
+  computer: 
