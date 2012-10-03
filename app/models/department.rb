@@ -1,4 +1,4 @@
 class Department < ActiveRecord::Base
-  has_many :sections
-  attr_accessible :name
+  has_many :sections, inverse_of: :department
+  attr_accessible :name, :section_ids
 end

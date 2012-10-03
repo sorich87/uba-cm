@@ -3,8 +3,7 @@ class CreateModels < ActiveRecord::Migration
     create_table :models do |t|
       t.string :name
       t.string :brand
-      t.string :type
-      t.text :comment
+      t.string :model_type
 
       t.timestamps
     end

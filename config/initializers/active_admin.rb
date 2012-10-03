@@ -46,6 +46,7 @@ ActiveAdmin.setup do |config|
   #
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.
+  config.default_namespace = :cm
 
   # == User Authentication
   #

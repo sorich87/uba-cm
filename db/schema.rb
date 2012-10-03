@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002165206) do
+ActiveRecord::Schema.define(:version => 20121002170612) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20121002165206) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
+    t.string   "first_name",             :default => "", :null => false
+    t.string   "last_name",              :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -71,8 +73,7 @@ ActiveRecord::Schema.define(:version => 20121002165206) do
   create_table "models", :force => true do |t|
     t.string   "name"
     t.string   "brand"
-    t.string   "type"
-    t.text     "comment"
+    t.string   "model_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -93,5 +94,13 @@ ActiveRecord::Schema.define(:version => 20121002165206) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "users_computers", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "computer_id"
+  end
+
+  add_index "users_computers", ["computer_id"], :name => "index_users_computers_on_computer_id"
+  add_index "users_computers", ["user_id"], :name => "index_users_computers_on_user_id"
 
 end

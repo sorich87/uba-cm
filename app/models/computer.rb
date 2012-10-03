@@ -1,5 +1,5 @@
 class Computer < ActiveRecord::Base
-  belongs_to :model
-  has_and_belongs_to_many :users
-  attr_accessible :name
+  belongs_to :model, inverse_of: :computers
+  has_and_belongs_to_many :users, join_table: :users_computers
+  attr_accessible :name, :model_id, :user_ids
 end
