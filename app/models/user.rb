@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   attr_accessible :address, :first_name, :last_name, :branch_id, :section_id, :computer_ids
 
   def full_name
-    "#{first_name} #{last_name}"
+    full_name = [first_name, last_name].join(' ')
+    full_name unless full_name.blank?
   end
 end
