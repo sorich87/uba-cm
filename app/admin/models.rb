@@ -24,4 +24,10 @@ ActiveAdmin.register Model do
     end
     f.buttons
   end
+
+  csv do
+    column :name
+    column :brand
+    column :model_type
+  end
 end

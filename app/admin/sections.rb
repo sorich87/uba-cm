@@ -14,4 +14,9 @@ ActiveAdmin.register Section do
     end
     f.buttons
   end
+
+  csv do
+    column :name
+    column :department
+  end
 end

@@ -4,10 +4,11 @@ ActiveAdmin.register User do
   index do
     column :first_name
     column :last_name
+    column :address
     column :branch
     column :section
     column "Computers" do |user|
-      user.computers.map{|computer| computer.name}.join(', ')
+      user.computers.map{|computer| computer.name}.uniq.join(', ')
     end
     default_actions
   end
@@ -22,5 +23,20 @@ ActiveAdmin.register User do
       f.input :computers, member_label: :name
     end
     f.buttons
+  end
+
+  csv do
+    column :first_name
+    column :last_name
+    column :address
+    column("Branch") do |user|
+      user.branch.name if user.branch
+    end
+    column("Section") do |user|
+      user.section.name if user.section
+    end
+    column("Computers") do |user|
+      user.computers.map{ |computer| computer.name }.uniq.join(', ')
+    end
   end
 end

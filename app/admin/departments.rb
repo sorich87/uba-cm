@@ -4,7 +4,7 @@ ActiveAdmin.register Department do
   index do
     column :name
     column "Sections" do |department|
-      department.sections.map{|section| section.name}.join(', ')
+      department.sections.map{|section| section.name}.uniq.join(', ')
     end
     default_actions
   end
@@ -15,5 +15,12 @@ ActiveAdmin.register Department do
       f.input :sections
     end
     f.buttons
+  end
+
+  csv do
+    column :name
+    column "Sections" do |department|
+      department.sections.map{|section| section.name}.uniq.join(', ')
+    end
   end
 end

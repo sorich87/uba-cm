@@ -14,4 +14,9 @@ ActiveAdmin.register Branch do
     end
     f.buttons
   end
+
+  csv do
+    column :name
+    column :city
+  end
 end

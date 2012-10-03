@@ -20,4 +20,20 @@ ActiveAdmin.register Device do
     end
     f.buttons
   end
+
+  csv do
+    column :name
+    column("Model") do |device|
+      device.model.name if device.model
+    end
+    column("Computer") do |device|
+      device.computer.name if device.computer
+    end
+    column("Branch") do |device|
+      device.branch.name if device.branch
+    end
+    column("Section") do |device|
+      device.section.name if device.section
+    end
+  end
 end
