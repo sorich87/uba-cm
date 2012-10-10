@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20121003074013) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
+    t.string   "language"
   end
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true

@@ -33,6 +33,7 @@ ActiveAdmin.register AdminUser do
       f.input :password
       f.input :password_confirmation
       f.input :role, as: :select, collection: AdminUser::ROLES
+      f.input :language, as: :select, collection: AdminUser::LANGUAGES
     end
     f.buttons
   end

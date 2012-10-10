@@ -18,6 +18,7 @@ fr:
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         role: Rôle
+        language: Langue
         current_sign_in_at: Connexion actuelle depuis le
         last_sign_in_at: Connexion précédente le
       user:

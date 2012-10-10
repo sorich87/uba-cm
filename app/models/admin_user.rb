@@ -7,9 +7,10 @@ class AdminUser < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me
-  attr_accessible :role
+  attr_accessible :role, :language
 
   ROLES = %w(guest admin)
+  LANGUAGES = %w(en fr)
 
   def role?(base_role)
     return false unless role
@@ -18,6 +19,10 @@ class AdminUser < ActiveRecord::Base
 
   def admin?
     role?(:admin)
+  end
+
+  def guest?
+    role?(:guest)
   end
 
   def full_name
