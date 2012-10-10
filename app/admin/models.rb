@@ -11,7 +11,7 @@ ActiveAdmin.register Model do
     end
   end
 
-  menu priority: 3, parent: "Computers"
+  menu priority: 3, parent: "Devices"
 
   index do
     column :name

@@ -58,12 +58,9 @@ ActiveRecord::Schema.define(:version => 20121003074013) do
 
   create_table "computers", :force => true do |t|
     t.string   "name"
-    t.integer  "model_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "computers", ["model_id"], :name => "index_computers_on_model_id"
 
   create_table "departments", :force => true do |t|
     t.string   "name"

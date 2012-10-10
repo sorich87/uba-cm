@@ -11,7 +11,7 @@ ActiveAdmin.register Device do
     end
   end
 
-  menu priority: 4, parent: "Computers"
+  menu priority: 4
 
   index do
     column :name

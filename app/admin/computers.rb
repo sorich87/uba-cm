@@ -15,7 +15,6 @@ ActiveAdmin.register Computer do
 
   index do
     column :name
-    column :model
     column "Devices" do |computer|
       computer.devices.map{ |device| device.name }.uniq.join(', ')
     end
@@ -31,7 +30,6 @@ ActiveAdmin.register Computer do
   form do |f|
     f.inputs "Computer Details" do
       f.input :name
-      f.input :model
       f.input :devices, member_label: :name
       f.input :users, member_label: :full_name
     end
@@ -40,9 +38,6 @@ ActiveAdmin.register Computer do
 
   csv do
     column :name
-    column("Model") do |computer|
-      computer.model.name if computer.model
-    end
     column("Devices") do |computer|
       computer.devices.map{ |device| device.name }.uniq.join(', ')
     end
