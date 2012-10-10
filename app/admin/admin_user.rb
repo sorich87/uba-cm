@@ -3,7 +3,7 @@ ActiveAdmin.register AdminUser do
 
   controller do
     def action_methods
-      if current_admin_user.admin?
+      if can?(:manage, AdminUser)
         super
       else
         super - ['new', 'edit', 'destroy']
@@ -11,7 +11,7 @@ ActiveAdmin.register AdminUser do
     end
   end
 
-  menu priority: 10, if: proc{ current_admin_user.admin? }
+  menu priority: 10, if: proc{ can?(:manage, AdminUser) }
 
   index do
     column :email

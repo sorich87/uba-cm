@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
       I18n.default_locale
     end
   end
+
+  def current_ability
+    @current_ability ||= Ability.new(current_admin_user)
+  end
 end
