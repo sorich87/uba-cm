@@ -38,6 +38,13 @@ $error-color: #932419 !default;
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
 body.active_admin {
+  font-size: 16px;
+  font-weight: 300;
+
+  #header {
+    height: 30px;
+  }
+
   #footer {
     p { display: none; }
   }
