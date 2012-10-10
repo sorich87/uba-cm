@@ -21,13 +21,13 @@ ActiveAdmin.register Model do
   end
 
   form do |f|
-    f.inputs "Model Details" do
+    f.inputs t(:"admin.labels.details") do
       f.input :name
       f.input :brand
       f.input :model_type, label: "Type"
     end
 
-    f.inputs "Features" do
+    f.inputs t(:'activerecord.models.feature') do
       f.has_many :features do |g|
         g.input :_destroy, :as => :boolean, :label => "delete" unless g.object.id.nil?
         g.input :name

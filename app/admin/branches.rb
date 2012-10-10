@@ -20,7 +20,7 @@ ActiveAdmin.register Branch do
   end
 
   form do |f|
-    f.inputs "Branch Details" do
+    f.inputs t(:"admin.labels.details") do
       f.input :name
       f.input :city
     end

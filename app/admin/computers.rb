@@ -16,27 +16,27 @@ ActiveAdmin.register Computer do
   index do
     column :name
     column :fincon_number
-    column "Users" do |computer|
+    column t(:'activerecord.models.user') do |computer|
       computer.users.map{ |user| user.full_name }.uniq.join(', ')
     end
-    column "Branches" do |computer|
+    column t(:'activerecord.models.branch') do |computer|
       computer.users.map{ |user| user.branch }.uniq.map{ |branch| branch.name }.join(', ')
     end
-    column "Devices" do |computer|
+    column t(:'activerecord.models.device') do |computer|
       computer.devices.map{ |device| device.name }.uniq.join(', ')
     end
     default_actions
   end
 
   form do |f|
-    f.inputs "Computer Details" do
+    f.inputs t(:"admin.labels.details") do
       f.input :name
       f.input :fincon_number
       f.input :users, member_label: :full_name
       f.input :devices, member_label: :name
     end
 
-    f.inputs "Features" do
+    f.inputs t(:'activerecord.models.feature') do
       f.has_many :features do |g|
         g.input :_destroy, :as => :boolean, :label => "delete" unless g.object.id.nil?
         g.input :name

@@ -15,14 +15,14 @@ ActiveAdmin.register Department do
 
   index do
     column :name
-    column "Sections" do |department|
+    column t(:'activerecord.models.section') do |department|
       department.sections.map{|section| section.name}.uniq.join(', ')
     end
     default_actions
   end
 
   form do |f|
-    f.inputs "Model Details" do
+    f.inputs t(:'admin.labels.details') do
       f.input :name
       f.input :sections
     end

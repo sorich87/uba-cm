@@ -26,7 +26,7 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-    f.inputs "User Details" do
+    f.inputs t(:"admin.labels.details") do
       f.input :first_name
       f.input :last_name
       f.input :address

@@ -1,0 +1,48 @@
+fr:
+  activerecord:
+    models:
+      admin_user: Administrateur
+      branch: Agence
+      computer: Ordinateur
+      department: Département
+      device: Périphérique
+      feature: Caractéristique
+      model: Modèle
+      section: Service
+      user: Utilisateur
+    attributes:
+      admin_user:
+        email: Email
+        first_name: Prénom
+        last_name: Nom
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        role: Rôle
+        current_sign_in_at: Connexion actuelle depuis le
+        last_sign_in_at: Connexion précédente le
+      user:
+        first_name: Prénom
+        last_name: Nom
+        address: Adresse
+      branch:
+        name: Nom
+        city: Ville
+      department:
+        name: Nom
+      section:
+        name: Nom
+      model:
+        name: Nom
+        brand: Marque
+        model_type: Type
+      computer:
+        name: Nom
+        fincon_number: Numéro FINCON
+      feature:
+        name: Nom
+        value: Valeur
+      device:
+        name: Nom
+  admin:
+    labels:
+      details: Infos

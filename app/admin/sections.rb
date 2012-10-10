@@ -20,7 +20,7 @@ ActiveAdmin.register Section do
   end
 
   form do |f|
-    f.inputs "Model Details" do
+    f.inputs t(:"admin.labels.details") do
       f.input :name
       f.input :department
     end
