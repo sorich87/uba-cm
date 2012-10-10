@@ -58,8 +58,9 @@ ActiveRecord::Schema.define(:version => 20121003074013) do
 
   create_table "computers", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "fincon_number"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "departments", :force => true do |t|
@@ -86,11 +87,13 @@ ActiveRecord::Schema.define(:version => 20121003074013) do
   create_table "features", :force => true do |t|
     t.string   "name"
     t.string   "value"
+    t.integer  "computer_id"
     t.integer  "model_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
+  add_index "features", ["computer_id"], :name => "index_features_on_computer_id"
   add_index "features", ["model_id"], :name => "index_features_on_model_id"
 
   create_table "models", :force => true do |t|
