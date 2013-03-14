@@ -1,2 +1,2 @@
-A small web app for managing the computer park of a bank.
+UNMAINTAINED. A small web app for managing the computer park of a bank.
 
